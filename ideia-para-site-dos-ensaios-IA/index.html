@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal da Congregação (Simples)</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1>Portal Simples</h1>
+        <button onclick="mostrarCultos()">Cultos</button>
+        <button onclick="mostrarEnsaios()">Ensaios</button>
+    </header>
+
+    <main>
+        <div id="pagina-cultos" class="conteudo">
+            <h2>Agenda de Cultos</h2>
+            <input id="busca-cultos" placeholder="Digite o dia ou local...">
+            
+            <ul id="lista-cultos">
+                <li>Central - Terça-feira - 20h00</li>
+                <li>Vila Operária - Quarta-feira - 19h30</li>
+                <li>Central - Quinta-feira - 20h00</li>
+                <li>Central - Domingo - 18h30</li>
+            </ul>
+        </div>
+
+        <div id="pagina-ensaios" class="conteudo hidden">
+            <h2>Agenda de Ensaios</h2>
+            <input id="busca-ensaios" placeholder="Digite o tipo ou data...">
+            
+            <ul id="lista-ensaios">
+                <li>Ensaio Local - Central - 26/10</li>
+                <li>Reunião de Jovens - Regional - 19/10</li>
+                <li>Ensaio Regional - Central - 09/11</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

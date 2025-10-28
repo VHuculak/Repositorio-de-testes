@@ -1,0 +1,52 @@
+/* Estilo geral */
+body { 
+    font-family: sans-serif; 
+    text-align: center; 
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+button { 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    margin: 10px; 
+    cursor: pointer; 
+    border: 1px solid #005a9c;
+    background-color: #fff;
+    color: #005a9c;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+input { 
+    width: 80%; 
+    padding: 8px; 
+    margin-bottom: 20px; 
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ul { 
+    list-style: none; 
+    padding: 0; 
+}
+
+li { 
+    background-color: #fff; 
+    padding: 15px; 
+    margin: 8px auto; 
+    max-width: 400px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* A CLASSE MAIS IMPORTANTE! */
+/* Qualquer elemento com a classe "hidden" vai sumir da tela. */
+.hidden {
+    display: none;
+}
