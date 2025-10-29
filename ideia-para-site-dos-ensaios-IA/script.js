@@ -1,81 +1,102 @@
 // --- PARTE 1: PEGAR OS ELEMENTOS DO HTML ---
-// O JS precisa saber com quais partes do HTML ele vai trabalhar.
-// Vamos "guardar" as duas páginas (divs) em variáveis.
-
-const paginaCultos = document.getElementById('pagina-cultos');
-const paginaEnsaios = document.getElementById('pagina-ensaios');
+// Guardamos as duas seções (divs) em variáveis para poder manipulá-las.
+// Esta parte não precisa ser alterada.
+var paginaCultos = document.getElementById('pagina-cultos');
+var paginaEnsaios = document.getElementById('pagina-ensaios');
 
 
 // --- PARTE 2: FUNÇÕES PARA MOSTRAR E ESCONDER AS PÁGINAS ---
-// Estas são as funções que os botões (com onclick) vão chamar.
+// Estas funções são chamadas pelos botões no HTML.
+// Esta parte também não precisa ser alterada.
 
 // Função que mostra a página de CULTOS
 function mostrarCultos() {
-    console.log("Botão 'Cultos' clicado!");
-    
-    // 1. Mostra a página de cultos (removendo a classe que a esconde)
+    // Tira a classe 'hidden' da página de cultos, fazendo ela APARECER.
     paginaCultos.classList.remove('hidden');
-    
-    // 2. Esconde a página de ensaios (adicionando a classe que a esconde)
+    // Adiciona a classe 'hidden' na página de ensaios, fazendo ela SUMIR.
     paginaEnsaios.classList.add('hidden');
 }
 
 // Função que mostra a página de ENSAIOS
 function mostrarEnsaios() {
-    console.log("Botão 'Ensaios' clicado!");
-
-    // 1. Esconde a página de cultos
+    // Esconde a página de cultos.
     paginaCultos.classList.add('hidden');
-    
-    // 2. Mostra a página de ensaios
+    // Mostra a página de ensaios.
     paginaEnsaios.classList.remove('hidden');
 }
 
 
-// --- PARTE 3: A LÓGICA DA BARRA DE BUSCA ---
+// --- PARTE 3: A FUNÇÃO DE BUSCA INTELIGENTE E REUTILIZÁVEL ---
+// Esta é a função que faz a mágica da pesquisa.
 
-// BUSCA DE CULTOS
-const inputBuscaCultos = document.getElementById('busca-cultos');
-const listaCultos = document.getElementById('lista-cultos').getElementsByTagName('li');
+/**
+ * Configura a lógica de filtro para um campo de busca e uma lista.
+ * @param {string} idInput - O ID do campo <input> de busca.
+ * @param {string} idLista - O ID da lista <ul> que será filtrada.
+ */
+function configurarBusca(idInput, idLista) {
+    // 1. Pega os elementos do HTML com base nos IDs recebidos.
+    var input = document.getElementById(idInput);
+    var listaItens = document.getElementById(idLista).getElementsByTagName('li');
 
-// Isso diz: "Fique escutando o que acontece no campo de busca de cultos"
-inputBuscaCultos.addEventListener('input', function() {
-    
-    // Pega o que o usuário digitou e converte para minúsculas
-    const termoBuscado = inputBuscaCultos.value.toLowerCase();
-
-    // Agora, vamos olhar cada item da lista de cultos, um por um
-    for (const item of listaCultos) {
+    // 2. Fica "escutando" o que o usuário digita no campo de busca.
+    // O código dentro desta função vai rodar toda vez que uma tecla for pressionada.
+    input.addEventListener('input', function() {
         
-        // Pega o texto do item da lista e converte para minúsculas
-        const textoItem = item.textContent.toLowerCase();
+        // Pega o que o usuário digitou e converte para letras minúsculas.
+        var termoBuscado = input.value.toLowerCase();
+        
+        // =====================================================================
+        // AQUI COMEÇA A NOVA LÓGICA DE BUSCA POR PALAVRAS
+        // =====================================================================
 
-        // Se o texto do item INCLUI o texto digitado...
-        if (textoItem.includes(termoBuscado)) {
-            // ...então o item deve aparecer (garantimos que ele não tem a classe 'hidden')
-            item.classList.remove('hidden');
-        } else {
-            // ...senão, o item deve SUMIR (adicionamos a classe 'hidden')
-            item.classList.add('hidden');
+        // A. Quebramos o que o usuário digitou em palavras separadas.
+        // Exemplo: se a busca for "central terça", isso vira uma lista ["central", "terça"].
+        var palavrasBuscadas = termoBuscado.split(' ');
+
+        // B. Agora, vamos verificar cada item da lista (cada <li>) um por um.
+        for (var item of listaItens) {
+            
+            // Pega o texto do item da lista e converte para minúsculas também.
+            var textoItem = item.textContent.toLowerCase();
+            
+            // C. Criamos uma variável de controle, um "checklist".
+            // Começamos assumindo que o item da lista é um resultado válido.
+            var ehUmResultadoValido = true; 
+            
+            // D. Verificamos CADA PALAVRA da busca contra o texto do item da lista.
+            for (var palavra of palavrasBuscadas) {
+                // Se o texto do item NÃO INCLUIR uma das palavras da busca...
+                if (!textoItem.includes(palavra)) {
+                    // ...nós "reprovamos" o item, marcando-o como inválido.
+                    ehUmResultadoValido = false; 
+                    // Como ele já falhou, não precisamos verificar as outras palavras. Paramos aqui.
+                    break; 
+                }
+            }
+            
+            // E. No final da verificação, tomamos a decisão de mostrar ou esconder o item.
+            if (ehUmResultadoValido) {
+                // Se o item passou em todos os testes (continuou 'true'), ele APARECE.
+                item.classList.remove('hidden');
+            } else {
+                // Se ele falhou em algum teste (virou 'false'), ele SOME.
+                item.classList.add('hidden');
+            }
         }
-    }
-});
+        // =====================================================================
+        // FIM DA NOVA LÓGICA
+        // =====================================================================
+    });
+}
 
 
-// BUSCA DE ENSAIOS (a lógica é EXATAMENTE a mesma!)
-const inputBuscaEnsaios = document.getElementById('busca-ensaios');
-const listaEnsaios = document.getElementById('lista-ensaios').getElementsByTagName('li');
+// --- PARTE 4: ATIVANDO AS BUSCAS ---
+// Aqui nós "ligamos" a função de busca para cada par de input/lista.
+// Esta parte não precisa ser alterada.
 
-inputBuscaEnsaios.addEventListener('input', function() {
-    const termoBuscado = inputBuscaEnsaios.value.toLowerCase();
+// Conecta a barra 'busca-cultos' com a lista 'lista-cultos'.
+configurarBusca('busca-cultos', 'lista-cultos');
 
-    for (const item of listaEnsaios) {
-        const textoItem = item.textContent.toLowerCase();
-
-        if (textoItem.includes(termoBuscado)) {
-            item.classList.remove('hidden');
-        } else {
-            item.classList.add('hidden');
-        }
-    }
-});
+// Conecta a barra 'busca-ensaios' com a lista 'lista-ensaios'.
+configurarBusca('busca-ensaios', 'lista-ensaios');
