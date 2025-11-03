@@ -41,7 +41,7 @@ body {
     align-items: center;
 
     /* 🔧 Seu espaçamento original de 5px no topo da página. */
-    padding-top: 5px;
+    padding-top: 2px;
 }
 
 /* ====== HEADER (CABEÇALHO) ====== */
@@ -53,7 +53,7 @@ header {
     border-radius: 15px;            /* 🔧 Deixa os cantos da caixa arredondados. */
     border: 1px solid #5a5a5a3d;    /* 🔧 Estilo da borda. */
     text-align: center;             /* Garante que o texto dentro do header fique centralizado. */
-    margin-bottom: 40px;            /* 🔧 Distância fixa entre o header e a section (para PC). */
+    margin-bottom: 5px;            /* 🔧 Distância fixa entre o header e a section (para PC). */
 }
 
 /* ====== FRASE ABAIXO DA PESQUISA (CABEÇALHO) ====== */
@@ -63,15 +63,15 @@ header {
 }
 
 /* ====== SECTION (CAIXA DE RESULTADO) ====== */
-section {
+/*section {
     background-color: #ececec;      /* 🔧 Cor de fundo da caixa de resultados. */
-    border-radius: 20px;            /* 🔧 Arredondamento dos cantos. */
-    padding: 15px;                  /* 🔧 Espaçamento interno da caixa. */
-    width: 95%;                     /* 🔧 Largura da caixa. */
-    max-width: 735px;               /* 🔧 Largura máxima em telas grandes. */
-    border: 1px solid #5a5a5a3d;    /* 🔧 Estilo da borda da caixa. */
-    margin-bottom: 40px;            /* 🔧 Distância de segurança para quando o conteúdo é longo (para PC). */
-}
+ /*   border-radius: 20px;            /* 🔧 Arredondamento dos cantos. */
+ /*   padding: 15px;                  /* 🔧 Espaçamento interno da caixa. */
+ /*   width: 95%;                     /* 🔧 Largura da caixa. */
+ /*   max-width: 735px;               /* 🔧 Largura máxima em telas grandes. */
+ /*   border: 1px solid #5a5a5a3d;    /* 🔧 Estilo da borda da caixa. */
+ /*   margin-bottom: 40px;            /* 🔧 Distância de segurança para quando o conteúdo é longo (para PC). 
+} */
 
 /* ====== FOOTER (RODAPÉ) ====== */
 footer {
@@ -103,25 +103,53 @@ h1 {
     width: 180px;                   /* 🔧 Tamanho da logo. */
 }
 
-input[type="text"] { 
-    padding: 1px;                   /* 🔧 Espaçamento interno do campo de texto. */
-    font-size: 16px;                /* 🔧 Tamanho da fonte no campo de texto. */
-    border: auto;                   /* Usa a borda padrão do navegador. */
+
+
+/* =================================================================  */
+
+button { 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    margin: 10px; 
+    cursor: pointer; 
+    border: 1px solid #005a9c;
+    background-color: #fff;
+    color: #005a9c;
+    border-radius: 5px;
 }
 
-input[type="button"] { 
-    padding: 1px;                   /* 🔧 Espaçamento interno do botão. */
-    font-size: 15px;                /* 🔧 Tamanho da fonte do botão. */
-    cursor: pointer;                /* Mostra o cursor de "mãozinha" ao passar sobre o botão. */
-    margin-left: 5px;               /* 🔧 Espaço à esquerda do botão. */
-    text-align: center;
+button:hover {
+    background-color: #f0f0f0;
 }
 
-#res { 
-    text-align: center;
-    margin-top: 20px;               /* 🔧 Espaço entre o topo da caixa e o início do resultado. */
-    font-size: 18px;                /* 🔧 Tamanho do texto do resultado. */
-    line-height: 1.6;               /* 🔧 Altura da linha. Melhora a leitura de textos longos. */
+input { 
+    width: 80%; 
+    padding: 8px; 
+    margin-bottom: 20px; 
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ul { 
+    list-style: none; 
+    padding: 0; 
+}
+
+li { 
+    background-color: #fff; 
+    padding: 15px; 
+    margin: 8px auto; 
+    max-width: 400px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* A CLASSE MAIS IMPORTANTE! */
+/* Qualquer elemento com a classe "hidden" vai sumir da tela. */
+.hidden {
+    display: none;
 }
 
 /* ======================================================== */
