@@ -46,7 +46,7 @@ body {
 
 /* ====== HEADER (CABEÇALHO) ====== */
 header {
-    background-color: #ececec;      /* 🔧 Cor de fundo do cabeçalho. */
+    background-color: #dee2e6;      /* 🔧 Cor de fundo do cabeçalho. */
     width: 95%;                     /* 🔧 Largura do cabeçalho. */
     max-width: 735px;               /* 🔧 Largura máxima em telas grandes, para não ficar gigante. */
     padding: 10px;                  /* 🔧 Espaçamento interno do cabeçalho. */
@@ -93,7 +93,7 @@ footer {
 h1 { 
     margin-top: 0;                  /* Remove um espaço extra que o título poderia ter no topo. */
     margin-bottom: 20px;            /* 🔧 Espaço entre o título e a logo. */
-    color: #033D60;                 /* 🔧 Cor do texto do título. */
+    color: #033d60;                 /* 🔧 Cor do texto do título. */
     font-size: 1.8em;               /* 🔧 Tamanho do título. */
 }
 
@@ -112,14 +112,19 @@ button {
     padding: 10px 20px; 
     margin: 10px; 
     cursor: pointer; 
-    border: 1px solid #005a9c;
-    background-color: #fff;
-    color: #005a9c;
+    border: 1px solid #033d60;
+    /*background-color: #fff; */
+    /*color: #033d60; */
     border-radius: 5px;
+    padding: 10px;
+
+    background: #033d60;
+    color: rgb(255, 255, 255);
+    padding: 10px;
 }
 
 button:hover {
-    background-color: #f0f0f0;
+    background-color: transparent
 }
 
 input { 
@@ -137,7 +142,7 @@ ul {
 }
 
 li { 
-    background-color: #fff; 
+    background-color: #dee2e6; 
     padding: 15px; 
     margin: 8px auto; 
     max-width: 400px; 
