@@ -83,7 +83,7 @@ footer {
     background-color: #ececec;      /* 🔧 Cor de fundo do rodapé. */
     color: #555;                    /* 🔧 Cor do texto do rodapé. */
     text-align: center;             /* Centraliza o texto do rodapé. */
-    padding: 5px;                   /* 🔧 Seu espaçamento interno original. */
+    padding: 3px;                   /* 🔧 Seu espaçamento interno original. */
     font-size: 11px;                /* 🔧 Tamanho do texto do rodapé. */
     border-top: 1px solid #ccc;     /* Cria uma linha fina no topo do rodapé. */
 }
@@ -113,11 +113,8 @@ button {
     margin: 10px; 
     cursor: pointer; 
     border: 1px solid #033d60;
-    /*background-color: #fff; */
-    /*color: #033d60; */
     border-radius: 5px;
     padding: 10px;
-
     background: #033d60;
     color: rgb(255, 255, 255);
     padding: 10px;
@@ -136,19 +133,47 @@ input {
     border-radius: 5px;
 }
 
+/* 1. Estilizando a LISTA (o <ul>) */
 ul { 
-    list-style: none; 
-    padding: 0; 
+  list-style: none; 
+  padding: 0;
+  margin: 0; /* Adicionado para garantir o reset */
+
+  /* --- CONFIGURAÇÃO DO GRID --- */
+  
+  /* 1. Ativa o CSS Grid */
+  display: grid;
+  
+  /* 2. A coluna ÚNICA terá a largura do item mais largo */
+  grid-template-columns: max-content;
+
+  /* 3. Centraliza o bloco da lista (a coluna) na página */
+  justify-content: center; 
 }
 
+/* 2. Estilizando CADA ITEM (o <li>) */
 li { 
-    background-color: #dee2e6; 
-    padding: 15px; 
-    margin: 8px auto; 
-    max-width: 400px; 
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: left;
+  background-color: #dee2e6; 
+  padding: 15px; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: left;
+  
+  /* --- AJUSTES FINAIS --- */
+
+  /* 1. Adicione a margem APENAS na vertical (para cima/baixo) 
+     Removemos o 'auto' para o Grid poder controlar o alinhamento */
+  margin: 8px 0; 
+  /* (Isso é o mesmo que margin-top: 8px; margin-bottom: 8px;) */
+  
+  /* 2. Força o texto a ficar em UMA ÚNICA LINHA 
+     para o 'max-content' funcionar corretamente */
+  white-space: nowrap; 
+
+  /* 3. (IMPORTANTE) REMOVA AS LINHAS:
+     max-width: 400px;
+     margin: 8px auto; 
+  */
 }
 
 /* A CLASSE MAIS IMPORTANTE! */

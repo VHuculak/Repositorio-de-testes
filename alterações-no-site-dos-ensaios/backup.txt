@@ -1,152 +1,21 @@
-/* ================================================= */
-/* ARQUIVO CSS COMPLETO, COM SEUS COMENTÁRIOS        */
-/* ================================================= */
-
-/* ====== GERAL ====== */
-html {
-    /* Prepara a página para que o 'body' possa usar a altura total da tela. É um passo inicial importante. */
-    height: 100%;
-}
-
-/* ====== BODY ====== */
-body {
-    /* AQUI COMEÇA A ESTRUTURA PRINCIPAL DO LAYOUT */
-    display: flex;                  /* Ativa o modo "Flexbox". Pense nisso como transformar o body em um organizador inteligente. */
-    flex-direction: column;         /* Diz ao organizador para empilhar os itens (header, section, footer) um em cima do outro. */
-    min-height: 100vh;              /* Garante que o corpo da página tenha, no mínimo, a altura total da tela do seu dispositivo. */
-
-    /* SEUS ESTILOS ORIGINAIS */
-    margin: 0;                      /* Remove a margem padrão que os navegadores colocam, para termos controle total. */
-    font-family: Verdana;           /* 🔧 Fonte padrão da página — você pode trocar para 'Verdana', 'Helvetica', etc. */
-    text-align: center;             /* Centraliza o conteúdo de texto horizontalmente por padrão. */
-    background-color: #ffffff;      /* 🔧 Cor de fundo da página — pode alterar para #f0f0f0 ou outra cor. */
-}
-
-/* ====== HEADER (CABEÇALHO) ====== */
-header {
-    background-color: #ececec;      /* Cor de fundo da caixa do cabeçalho. */
-    width: 99%;                     /* Largura do cabeçalho em relação à página. */
-    max-width: 735px;               /* Define uma largura máxima para que não fique gigante em telas de computador. */
-    padding: 10px;                  /* Espaçamento interno, para o conteúdo não colar na borda da caixa. */
-    border-radius: 15px;            /* Deixa os cantos da caixa arredondados. */
-    border: 1px solid #5a5a5a3d;    /* Cria uma borda fina e cinza ao redor da caixa. */
-    text-align: center;             /* Garante que o texto dentro do header fique centralizado. */
-    box-sizing: border-box;         /* Uma boa prática que impede o 'padding' de aumentar a largura total da caixa. */
-
-    /* Define os espaços ao redor do header: 20px em cima, 'auto' dos lados (para centralizar) e 40px embaixo, empurrando a 'section' para a posição certa. */
-    margin: 5px auto 40px auto; 
-}
-
-/* ====== TÍTULO ====== */
-h1 {
-    margin-top: 0;                  /* Remove um espaço extra que o título poderia ter no topo. */
-    margin-bottom: 20px;            /* 🔧 Espaço entre o título e a logo. Alterar para aumentar/diminuir distância. */
-    color: #033D60;                 /* 🔧 Cor do título. Pode colocar qualquer hexadecimal (#ff0000), rgb ou nome de cor. */
-}
-
-/* ====== LOGO ====== */
-.logo-fundo {
-    display: block;                 /* Faz a logo se comportar como um bloco, permitindo a centralização com margem. */
-    margin: 0 auto 25px auto;       /* 🔧 Centraliza horizontalmente e adiciona 25px de espaço embaixo. */
-    width: 180px;                   /* 🔧 Tamanho da logo. Alterar para aumentar ou diminuir a imagem. */
-    opacity: 1;                     /* 🔧 Transparência da logo. 1 = totalmente visível, 0.5 = 50% transparente. */
-}
-
-/* ====== INPUTS E BOTÃO ====== */
-input[type="text"] {
-    padding: 1px;                   /* Espaçamento interno do campo de texto. Aumente para deixar maior. */
-    font-size: 16px;                /* 🔧 Tamanho da fonte no input. Pode aumentar para 18px, 20px etc. */
-    border: auto;                   /* Usa a borda padrão do navegador para o campo de texto. */
-}
-
-input[type="button"] {
-    padding: 1px;                   /* Espaçamento interno do botão. Alterar para aumentar o tamanho. */
-    font-size: 15px;                /* 🔧 Tamanho da fonte do botão. */
-    cursor: pointer;                /* Mostra o cursor de "mãozinha" ao passar sobre o botão. */
-    margin-left: 5px;               /* 🔧 Espaço à esquerda do botão, para não colar no campo de texto. */
-    text-align: center;             /* Garante que o texto dentro do botão fique centralizado. */
-}
-
-/* ====== SECTION (CAIXA DE RESULTADO) ====== */
-section {
-    background-color: #ececec;      /* Cor de fundo da caixa de resultados. */
-    border-radius: 20px;            /* Deixa as bordas da caixa arredondadas. */
-    padding: 15px;                  /* 🔧 Espaço interno entre a borda da caixa e o texto do resultado. */
-    width: 95%;                     /* 🔧 Tamanho lateral da caixa (largura). */
-    max-width: 735px;               /* Largura máxima para telas de computador. */
-    border: 1px solid #5a5a5a3d;    /* Estilo da borda da caixa. */
-    box-sizing: border-box;         /* Boa prática para o padding não afetar a largura. */
-
-    /* POSICIONAMENTO DA SECTION */
-    margin-left: auto;              /* Centraliza a caixa horizontalmente. */
-    margin-right: auto;             /* Centraliza a caixa horizontalmente. */
-    margin-bottom: 40px;            /* 🔧 ESSA É A REGRA DE SEGURANÇA: Garante que, quando a lista de resultados for grande, sempre haverá um espaço de 40px abaixo dela, impedindo que ela "cole" no rodapé. */
-}
-
-/* ====== DIV DE RESULTADO (#res) ====== */
-#res {
-    text-align: center;
-    margin-top: 20px;               /* 🔧 Espaço entre o topo da caixa da 'section' e o início dos resultados. */
-    font-size: 18px;                /* 🔧 Tamanho do texto do resultado. */
-    line-height: 1.6;               /* 🔧 Altura da linha. Um valor maior que 1 melhora a leitura de textos com várias linhas. */
-}
-
-/* ====== FOOTER (RODAPÉ) ====== */
-footer {
-    /* ESSA É A REGRA MÁGICA! */
-    /* Quando o conteúdo da página é curto, esta linha "suga" todo o espaço vertical vazio e o transforma em margem, empurrando o rodapé para a base da tela. */
-    margin-top: auto;
-
-    /* ESTILOS VISUAIS DO RODAPÉ */
-    width: 100%;                    /* Faz o rodapé ocupar toda a largura da tela. */
-    background-color: #ececec;      /* Cor de fundo do rodapé. */
-    color: #555;                    /* Cor do texto do rodapé. */
-    text-align: center;             /* Centraliza o texto do rodapé. */
-    padding: 5px;                  /* 🔧 Espaço interno do rodapé. */
-    font-size: 11px;                /* 🔧 Tamanho do texto pequeno do rodapé. */
-    border-top: 1px solid #ccc;     /* Cria uma linha fina e cinza no topo do rodapé (opcional). */
-}
+Antiga formatação do da Lista e seus blocos, deixando tudo menor e quebrando linha, o atual é dinamico.
+Após subir em prod, verificar qual é mais confortavel no celular (ja que lá são os maiores usos)
 
 
-HTML:
+ul { 
+    list-style: none; 
+    padding: 0;
 
-
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Ensaio CCB - Maringá e Região</title>
-      <link rel="stylesheet" href="estilo.css"> <!-- cria um link para outro arquivo
-    Separando o css do HTML e JS -->
-      
-</head>
-<body>
-    <header>
-    <h1>Ensaio Musical em Maringá e Região</h1>
-    <img class="logo-fundo" src="logo_oficial_CCB.png" alt="Logo">
-
-    <p>Digite abaixo qual o dia da semana: ("Ex: 2 Segunda, Terceira Sexta, Ultima Segunda, etc.")</p> <p> <input type="text" name="diaSem" placeholder="Digite aqui..." id="dia"> 
-    <input type="button" value="Buscar" onclick="procurar()"> 
-    </p>
-    </header>
-
-
-    <section>
-    <div id="res" ><p><strong>Pesquise o dia do Ensaio acima </strong></p></div>
+  
     
-    </section>
+}
 
-    <footer>
-        <p>Nota: Este não é um site oficial da Congregação Cristã no Brasil.</p>
-        <p>© 2025 - Feito por Vitor Huçulak</p>
-    </footer>
-    
-
-    <script src="script.js"> </script>
-    
-</body>
-</html>
-
-
+li { 
+    background-color: #dee2e6; 
+    padding: 15px; 
+    margin: 8px auto; 
+    max-width: 400px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
