@@ -2,10 +2,11 @@
 // (Esta parte estava correta)
 var paginaCultos = document.getElementById('pagina-cultos');
 var paginaEnsaios = document.getElementById('pagina-ensaios');
+var paginaEventos = document.getElementById('pagina-serviços');
 
 
 // --- PARTE 2: FUNÇÕES PARA MOSTRAR E ESCONDER AS PÁGINAS ---
-// (Esta parte estava correta)
+
 function mostrarCultos() {
     paginaCultos.classList.remove('hidden');
     paginaEnsaios.classList.add('hidden');
@@ -14,6 +15,12 @@ function mostrarCultos() {
 function mostrarEnsaios() {
     paginaCultos.classList.add('hidden');
     paginaEnsaios.classList.remove('hidden');
+}
+
+function mostrarServiços() {
+    paginaEnsaios.classList.add('hidden');
+    paginaCultos.classList.add('hidden');
+    paginaEventos.classList.remove('hidden');
 }
 
 // =====================================================================
@@ -98,3 +105,4 @@ function configurarBusca(idInput, idLista) {
 // (Esta parte estava correta)
 configurarBusca('busca-cultos', 'lista-cultos');
 configurarBusca('busca-ensaio', 'lista-ensaios');
+configurarBusca('busca-serviços', 'lista-serviços');
