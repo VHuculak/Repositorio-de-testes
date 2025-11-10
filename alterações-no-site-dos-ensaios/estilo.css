@@ -62,16 +62,7 @@ header {
     text-align: center;
 }
 
-/* ====== SECTION (CAIXA DE RESULTADO) ====== */
-/*section {
-    background-color: #ececec;      /* 🔧 Cor de fundo da caixa de resultados. */
- /*   border-radius: 20px;            /* 🔧 Arredondamento dos cantos. */
- /*   padding: 15px;                  /* 🔧 Espaçamento interno da caixa. */
- /*   width: 95%;                     /* 🔧 Largura da caixa. */
- /*   max-width: 735px;               /* 🔧 Largura máxima em telas grandes. */
- /*   border: 1px solid #5a5a5a3d;    /* 🔧 Estilo da borda da caixa. */
- /*   margin-bottom: 40px;            /* 🔧 Distância de segurança para quando o conteúdo é longo (para PC). 
-} */
+
 
 /* ====== FOOTER (RODAPÉ) ====== */
 footer {
@@ -182,6 +173,7 @@ li {
     display: none;
 }
 
+
 /* ======================================================== */
 /* ====== REGRAS ESPECIAIS PARA TELAS PEQUENAS (CELULAR) ====== */
 /* ======================================================== */
@@ -200,4 +192,29 @@ li {
     section {
         margin-bottom: 25px;        /* 🔧 Reduz a distância de segurança abaixo da section no celular. */
     }
+
+
+    /* ======================================= */
+    /* ====== CORREÇÃO DA LISTA NO CELULAR ====== */
+    /* ======================================= */
+
+    /* 1. Define que a lista (<ul>) deve ter 95% de largura
+          e a RE-CENTRALIZA na tela. */
+    ul {
+        width: 95%;
+        
+        /* ADIÇÃO PARA CENTRALIZAR O BLOCO DA LISTA */
+        margin-left: auto;
+        margin-right: auto;
+        
+        /* Altera a regra da coluna para ocupar 100% da nova largura */
+        grid-template-columns: 100%;
+    }
+    
+    /* 2. (A REGRA MAIS IMPORTANTE)
+          Permite que o texto dentro dos itens (<li>) quebre a linha. */
+    li {
+        white-space: normal;
+    }
+
 }
