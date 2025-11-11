@@ -192,6 +192,10 @@ li {
     section {
         margin-bottom: 25px;        /* 🔧 Reduz a distância de segurança abaixo da section no celular. */
     }
+    button {
+        font-size: 14px;
+        margin: 5px;
+    }
 
 
     /* ======================================= */
