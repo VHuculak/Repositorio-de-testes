@@ -8,12 +8,14 @@ var paginaEventos = document.getElementById('pagina-serviços');
 // --- PARTE 2: FUNÇÕES PARA MOSTRAR E ESCONDER AS PÁGINAS ---
 
 function mostrarCultos() {
-    paginaCultos.classList.remove('hidden');
+    paginaEventos.classList.add('hidden');
     paginaEnsaios.classList.add('hidden');
+    paginaCultos.classList.remove('hidden');
 }
 
 function mostrarEnsaios() {
     paginaCultos.classList.add('hidden');
+    paginaEventos.classList.add('hidden');
     paginaEnsaios.classList.remove('hidden');
 }
 
@@ -21,7 +23,6 @@ function mostrarServiços() {
     paginaEnsaios.classList.add('hidden');
     paginaCultos.classList.add('hidden');
     paginaEventos.classList.remove('hidden');
-}
 
 // =====================================================================
 // !! MUDANÇA 1: A NOVA FUNÇÃO AJUDANTE !!

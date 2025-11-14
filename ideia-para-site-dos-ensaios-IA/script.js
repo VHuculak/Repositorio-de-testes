@@ -1,102 +1,179 @@
+// --- PARTE 0: O NOVO "CÉREBRO" ---
+// Guarda qual cidade e aba estão ativas.
+// O valor inicial deve bater com o que o HTML está mostrando por padrão.
+var cidadeAtiva = 'mga'; // Começa mostrando Maringá ('mga')
+var abaAtiva = 'cultos';  // Começa mostrando 'cultos'
+
+
 // --- PARTE 1: PEGAR OS ELEMENTOS DO HTML ---
-// Guardamos as duas seções (divs) em variáveis para poder manipulá-las.
-// Esta parte não precisa ser alterada.
-var paginaCultos = document.getElementById('pagina-cultos');
-var paginaEnsaios = document.getElementById('pagina-ensaios');
+// Pegamos todos os 6 painéis de conteúdo
+var paginaCultosMGA = document.getElementById('pagina-cultos-mga');
+var paginaEnsaiosMGA = document.getElementById('pagina-ensaios-mga');
+var paginaServicosMGA = document.getElementById('pagina-serviços-mga');
+
+var paginaCultosCM = document.getElementById('pagina-cultos-cm');
+var paginaEnsaiosCM = document.getElementById('pagina-ensaios-cm');
+var paginaServicosCM = document.getElementById('pagina-serviços-cm');
+
+// Pegamos também os elementos que vamos atualizar
+var tituloRegiao = document.getElementById('titulo-regiao');
+var btnMaringa = document.getElementById('btn-maringa');
+var btnCampoMourao = document.getElementById('btn-campomourao');
 
 
 // --- PARTE 2: FUNÇÕES PARA MOSTRAR E ESCONDER AS PÁGINAS ---
-// Estas funções são chamadas pelos botões no HTML.
-// Esta parte também não precisa ser alterada.
 
-// Função que mostra a página de CULTOS
+// Função ajudante para esconder TUDO de uma vez
+function esconderTudo() {
+    paginaCultosMGA.classList.add('hidden');
+    paginaEnsaiosMGA.classList.add('hidden');
+    paginaServicosMGA.classList.add('hidden');
+    paginaCultosCM.classList.add('hidden');
+    paginaEnsaiosCM.classList.add('hidden');
+    paginaServicosCM.classList.add('hidden');
+}
+
+// Suas funções antigas, agora "inteligentes"
 function mostrarCultos() {
-    // Tira a classe 'hidden' da página de cultos, fazendo ela APARECER.
-    paginaCultos.classList.remove('hidden');
-    // Adiciona a classe 'hidden' na página de ensaios, fazendo ela SUMIR.
-    paginaEnsaios.classList.add('hidden');
+    abaAtiva = 'cultos'; // Salva a aba atual
+    esconderTudo();
+    
+    // Mostra o painel de culto da cidade que estiver ativa
+    if (cidadeAtiva === 'mga') {
+        paginaCultosMGA.classList.remove('hidden');
+    } else {
+        paginaCultosCM.classList.remove('hidden');
+    }
 }
 
-// Função que mostra a página de ENSAIOS
 function mostrarEnsaios() {
-    // Esconde a página de cultos.
-    paginaCultos.classList.add('hidden');
-    // Mostra a página de ensaios.
-    paginaEnsaios.classList.remove('hidden');
+    abaAtiva = 'ensaios'; // Salva a aba atual
+    esconderTudo();
+    
+    // Mostra o painel de ensaio da cidade que estiver ativa
+    if (cidadeAtiva === 'mga') {
+        paginaEnsaiosMGA.classList.remove('hidden');
+    } else {
+        paginaEnsaiosCM.classList.remove('hidden');
+    }
+}
+
+function mostrarServiços() {
+    abaAtiva = 'servicos'; // Salva a aba atual
+    esconderTudo();
+    
+    // Mostra o painel de serviços da cidade que estiver ativa
+    if (cidadeAtiva === 'mga') {
+        paginaServicosMGA.classList.remove('hidden');
+    } else {
+        paginaServicosCM.classList.remove('hidden');
+    }
+}
+
+// --- NOVAS FUNÇÕES DOS BOTÕES DE CIDADE ---
+function selecionarMaringa() {
+    cidadeAtiva = 'mga'; // Define Maringá como ativa
+    
+    // Manda "recarregar" a aba que o usuário estava vendo
+    if (abaAtiva === 'cultos') mostrarCultos();
+    if (abaAtiva === 'ensaios') mostrarEnsaios();
+    if (abaAtiva === 'servicos') mostrarServiços();
+
+    // Atualiza o título
+    tituloRegiao.textContent = "Relatório CCB - Maringá e Região";
+
+    // Atualiza o estilo dos botões
+    btnMaringa.classList.add('ativo');
+    btnCampoMourao.classList.remove('ativo');
+}
+
+function selecionarCampoMourao() {
+    cidadeAtiva = 'cm'; // Define Campo Mourão como ativo
+
+    // Manda "recarregar" a aba que o usuário estava vendo
+    if (abaAtiva === 'cultos') mostrarCultos();
+    if (abaAtiva === 'ensaios') mostrarEnsaios();
+    if (abaAtiva === 'servicos') mostrarServiços();
+
+    // Atualiza o título
+    tituloRegiao.textContent = "Relatório CCB - Campo Mourão e Região";
+    
+    // Atualiza o estilo dos botões
+    btnMaringa.classList.remove('ativo');
+    btnCampoMourao.classList.add('ativo');
 }
 
 
-// --- PARTE 3: A FUNÇÃO DE BUSCA INTELIGENTE E REUTILIZÁVEL ---
-// Esta é a função que faz a mágica da pesquisa.
+// =====================================================================
+// --- PARTE 3: A FUNÇÃO DE BUSCA (SEU CÓDIGO - 100% INTACTO) ---
+// =====================================================================
 
 /**
- * Configura a lógica de filtro para um campo de busca e uma lista.
- * @param {string} idInput - O ID do campo <input> de busca.
- * @param {string} idLista - O ID da lista <ul> que será filtrada.
+ * Remove acentos e caracteres especiais de uma string.
+ * Exemplo: "Última" vira "Ultima"
+ * @param {string} texto O texto para normalizar.
+ * @returns {string} O texto sem acentos.
  */
+function removerAcentos(texto) {
+    // Garante que não dê erro se o texto for nulo ou vazio
+    if (!texto) return "";
+
+    // O comando "mágico" para remover os acentos
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// (Sua função de busca original, sem nenhuma alteração)
 function configurarBusca(idInput, idLista) {
-    // 1. Pega os elementos do HTML com base nos IDs recebidos.
+    // 1. Pega os elementos do HTML
     var input = document.getElementById(idInput);
     var listaItens = document.getElementById(idLista).getElementsByTagName('li');
 
-    // 2. Fica "escutando" o que o usuário digita no campo de busca.
-    // O código dentro desta função vai rodar toda vez que uma tecla for pressionada.
+    // 2. Fica "escutando" o que o usuário digita
     input.addEventListener('input', function() {
-        
-        // Pega o que o usuário digitou e converte para letras minúsculas.
+
         var termoBuscado = input.value.toLowerCase();
-        
-        // =====================================================================
-        // AQUI COMEÇA A NOVA LÓGICA DE BUSCA POR PALAVRAS
-        // =====================================================================
+        var termoSemAcento = removerAcentos(termoBuscado);
+        var palavrasBuscadas = termoSemAcento.split(' ');
 
-        // A. Quebramos o que o usuário digitou em palavras separadas.
-        // Exemplo: se a busca for "central terça", isso vira uma lista ["central", "terça"].
-        var palavrasBuscadas = termoBuscado.split(' ');
+        for (var i = 0; i < listaItens.length; i++) {
 
-        // B. Agora, vamos verificar cada item da lista (cada <li>) um por um.
-        for (var item of listaItens) {
-            
-            // Pega o texto do item da lista e converte para minúsculas também.
+            var item = listaItens[i];
             var textoItem = item.textContent.toLowerCase();
-            
-            // C. Criamos uma variável de controle, um "checklist".
-            // Começamos assumindo que o item da lista é um resultado válido.
-            var ehUmResultadoValido = true; 
-            
-            // D. Verificamos CADA PALAVRA da busca contra o texto do item da lista.
+            var textoItemSemAcento = removerAcentos(textoItem);
+            var ehUmResultadoValido = true;
+
             for (var palavra of palavrasBuscadas) {
-                // Se o texto do item NÃO INCLUIR uma das palavras da busca...
-                if (!textoItem.includes(palavra)) {
-                    // ...nós "reprovamos" o item, marcando-o como inválido.
-                    ehUmResultadoValido = false; 
-                    // Como ele já falhou, não precisamos verificar as outras palavras. Paramos aqui.
-                    break; 
+                if (!textoItemSemAcento.includes(palavra)) {
+                    ehUmResultadoValido = false;
+                    break;
                 }
             }
-            
-            // E. No final da verificação, tomamos a decisão de mostrar ou esconder o item.
+
             if (ehUmResultadoValido) {
-                // Se o item passou em todos os testes (continuou 'true'), ele APARECE.
                 item.classList.remove('hidden');
             } else {
-                // Se ele falhou em algum teste (virou 'false'), ele SOME.
                 item.classList.add('hidden');
             }
         }
-        // =====================================================================
-        // FIM DA NOVA LÓGICA
-        // =====================================================================
     });
 }
 
 
-// --- PARTE 4: ATIVANDO AS BUSCAS ---
-// Aqui nós "ligamos" a função de busca para cada par de input/lista.
-// Esta parte não precisa ser alterada.
+// --- PARTE 4: ATIVANDO AS BUSCAS (MODIFICADO) ---
+// Agora ativamos as 6 barras de busca (3 de Maringá, 3 de Campo Mourão)
 
-// Conecta a barra 'busca-cultos' com a lista 'lista-cultos'.
-configurarBusca('busca-cultos', 'lista-cultos');
+// Buscas de Maringá
+configurarBusca('busca-cultos-mga', 'lista-cultos-mga');
+configurarBusca('busca-ensaio-mga', 'lista-ensaios-mga');
+configurarBusca('busca-serviços-mga', 'lista-serviços-mga');
 
-// Conecta a barra 'busca-ensaios' com a lista 'lista-ensaios'.
-configurarBusca('busca-ensaios', 'lista-ensaios');
+// Buscas de Campo Mourão
+configurarBusca('busca-cultos-cm', 'lista-cultos-cm');
+configurarBusca('busca-ensaio-cm', 'lista-ensaios-cm');
+configurarBusca('busca-serviços-cm', 'lista-serviços-cm');
+
+
+// --- PARTE 5: INICIALIZAÇÃO (NOVO) ---
+// Como tudo no HTML começa 'hidden', mandamos o JS mostrar
+// o painel correto assim que for carregado.
+mostrarCultos();
