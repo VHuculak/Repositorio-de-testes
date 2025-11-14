@@ -23,6 +23,7 @@ function mostrarServiços() {
     paginaEnsaios.classList.add('hidden');
     paginaCultos.classList.add('hidden');
     paginaEventos.classList.remove('hidden');
+}
 
 // =====================================================================
 // !! MUDANÇA 1: A NOVA FUNÇÃO AJUDANTE !!
