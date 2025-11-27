@@ -56,12 +56,6 @@ header {
     margin-bottom: 5px;            /* 🔧 Distância fixa entre o header e a section (para PC). */
 }
 
-/* ====== FRASE ABAIXO DA PESQUISA (CABEÇALHO) ====== */
-.obs {
-    font-size: 10px;
-    text-align: center;
-}
-
 
 
 /* ====== FOOTER (RODAPÉ) ====== */
@@ -114,6 +108,8 @@ button {
 button:hover {
     background-color: transparent
 }
+
+
 
 input { 
     width: 80%; 
@@ -174,11 +170,38 @@ li {
 }
 
 
-.legenda_musica {
+#legenda_musica {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 15px;
     justify-content: center;
+    
 }
+
+
+#legenda_musica p {
+  /* 1. Remove margens padrão desnecessárias */
+  margin-top: 0;
+  margin-bottom: 5px; 
+  
+  /* 2. Cria o Recuo Pendurado */
+  
+  /* Adiciona um padding esquerdo para empurrar TODO o conteúdo (incluindo a bolinha) */
+  padding-left: 15px; /* Ajuste este valor: é o espaço da bolinha + recuo do texto */
+  
+  /* Puxa a primeira linha (onde está a bolinha) para o espaço criado pelo padding.
+     O valor deve ser negativo e IGUAL ao valor do padding-left. */
+  text-indent: -15px; 
+  
+  /* Garante que o texto se alinhe bem à esquerda (pode não ser necessário, mas ajuda) */
+  text-align: left;
+  padding: 12px;
+}
+
+
+
+
+
+
 
 
 
@@ -202,10 +225,19 @@ li {
     }
     button {
         font-size: 13px;
-        margin: 2px;
+        margin: 4px;
     }
 
-    
+    #botoes button{
+        font-size: 13px;
+        margin: 4px;
+        
+    }
+
+    #legenda_musica {
+        text-align: auto;
+
+    }
 
 
     /* ======================================= */
@@ -231,4 +263,21 @@ li {
         white-space: normal;
     }
 
+}
+
+#legenda_musica p {
+  /* 1. Remove margens padrão desnecessárias */
+  margin-top: 0;
+  margin-bottom: 5px; 
+  
+  /* 2. Cria o Recuo Pendurado */
+  
+  /* Puxa a primeira linha (onde está a bolinha) para o espaço criado pelo padding.
+     O valor deve ser negativo e IGUAL ao valor do padding-left. */
+  text-indent: -9px; 
+  
+
+  /* Garante que o texto se alinhe bem à esquerda (pode não ser necessário, mas ajuda) */
+  text-align: left;
+  padding: 12px;
 }
