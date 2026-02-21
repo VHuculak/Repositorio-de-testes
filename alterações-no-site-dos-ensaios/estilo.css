@@ -82,10 +82,19 @@ h1 {
     font-size: 1.8em;               /* 🔧 Tamanho do título. */
 }
 
-.logo-fundo { 
-    display: block;                 /* Faz a logo se comportar como um bloco para poder centralizar. */
-    margin: 0 auto 25px auto;       /* Centraliza horizontalmente e adiciona espaço embaixo. */
-    width: 180px;                   /* 🔧 Tamanho da logo. */
+/*Link é o container, então ele dita o tamanho maximo e a imagem obedece
+invertemos, antes a imagem que ditava o tamanho e margem */
+
+.link-logo {
+    display: block;          /* Volta a ser bloco para aceitar margin auto */
+    width: 180px;            /* O tamanho fixo vai NO LINK agora */
+    margin: 0 auto 25px auto;/* Centraliza o link na tela */
+}
+
+/* Como dito a imagem só obedece os limites colocados no link (<a> é um container) */
+.logo-fundo {
+    width: 100%;             /* Ocupa 100% do espaço do link (180px) - PRECISA INDICAR TAMANHO PARA ELE OBEDECER*/
+    display: block;          /* Remove espaços fantasmas abaixo da img */
 }
 
 
@@ -269,12 +278,14 @@ li {
   /* 1. Remove margens padrão desnecessárias */
   margin-top: 0;
   margin-bottom: 5px; 
+  margin-left: 15px;
+  font-family: sans-serif;
   
   /* 2. Cria o Recuo Pendurado */
   
   /* Puxa a primeira linha (onde está a bolinha) para o espaço criado pelo padding.
      O valor deve ser negativo e IGUAL ao valor do padding-left. */
-  text-indent: -9px; 
+   text-indent: -10px;
   
 
   /* Garante que o texto se alinhe bem à esquerda (pode não ser necessário, mas ajuda) */

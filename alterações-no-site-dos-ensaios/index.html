@@ -10,17 +10,19 @@
 </head>
 <body>
     <header>
-    <h1>Relatório CCB - Maringá e Região</h1>
-    <img class="logo-fundo" src="logo_oficial_CCB.png" alt="Logo">
+        <h1>Relatório CCB - Maringá e Região</h1>
+        <a href='https://congregacaocristanobrasil.org.br/' target="_blank" class="link-logo"> 
+            <img class="logo-fundo" src="logo_oficial_CCB.png" alt="Logo"></a>
 
-    <button onclick="mostrarCultos()">Cultos</button>
-    <button onclick="mostrarEnsaios()">Ensaios</button>
-    <!-- <button onclick="window.open('https://congregacaocristanobrasil.org.br/', '_blank')">Site Oficial</button> -->
-    <button onclick="mostrarServiços()">Serviços</button>
-    <a href="musica.html"><button type="button">Área músical</button></a>
+        <button onclick="mostrarCultos()">Cultos</button>
+        <button onclick="mostrarEnsaios()">Ensaios</button>
+        <button onclick="mostrarServiços()">Serviços</button>
+        <a href="musica.html"><button type="button">Área músical</button></a>
+        <a href="#"><button type="button">Santa Ceia</button></a>
     </header>
 
-    <main>
+    <main> 
+        <!--Lista de Cultos -->
         <div id="pagina-cultos" class="conteudo hidden">
             <h2>Agenda de Cultos</h2>
             <input id="busca-cultos" placeholder="Digite o dia ou local...">
@@ -63,6 +65,7 @@
             </ul>
         </div>
 
+        <!--Lista de Ensaios -->
         <div id="pagina-ensaios" class="conteudo hidden">
             <h2>Agenda de Ensaios</h2>
             <input id="busca-ensaio" placeholder="Digite o dia ou local...">
@@ -74,19 +77,19 @@
                 <li>1ª Sexta - Pulinópolis (MÇU)</li>
                 <li>1ª Sexta - Cafeara (JTÃ)</li>
                 <li>1ª Sexta - Jd. Pioneiro (PDU)</li>
-                
+                            
                 <li>2ª Sexta - Jd. Catedral</li>
                 <li>2ª Sexta - Jd. Piatã</li>
                 <li>2ª Sexta - Jd. Ebenezer</li>
-                <li>2ª Sexta - Jd. Montreal - Indiaiá</li>
+                <li>2ª Sexta - Jd. Montreal - Indaiá</li>
                 <li>2ª Sexta - Jd. Olímpico</li>
-                <li>2ª Sexta - Vila Guardiana (MÇU)</li>
+                <li>2ª Sexta - Vila Guadiana (MÇU)</li>
                 <li>2ª Sexta - Jd. Ouro Verde II (SDI)</li>
                 <li>2ª Sexta - Jd. das Torres (SDI)</li>
-                <li>2ª Sexta - Jaguapirã - Central</li>
+                <li>2ª Sexta - Jaguapitã - Central</li>
                 <li>2ª Sexta - Conj. João de Barros (MVA)</li>
-                <li>2ª Sexta - Àgua Boa - Central</li>
-
+                <li>2ª Sexta - Água Boa - Central</li>
+                            
                 <li>3ª Sexta - Conj. Guaiapó</li>
                 <li>3ª Sexta - Jd. Ouro Cola</li>
                 <li>3ª Sexta - Maringá Velho</li>
@@ -98,15 +101,15 @@
                 <li>3ª Sexta - Dr. Camargo - Central</li>
                 <li>3ª Sexta - Sarandi - Central</li>
                 <li>3ª Sexta - Jd. São Rafael (MÇU)</li>
-                <li>3ª Sexta - São Miguel do Cambuí (MVA) 1</li>
+                <li>3ª Sexta - São Miguel do Cambuí (MVA)</li>
                 <li>3ª Sexta - Aquidaban (MVA)</li>
-                
+                            
                 <li>4ª Sexta - Conj. Requião</li>
                 <li>4ª Sexta - Conj. Giacomo Colombari (MVA)</li>
                 <li>4ª Sexta - Vale Azul (SDI)</li>
                 <li>4ª Sexta - Guaraci (JTÃ)</li>
                 <li>4ª Sexta - Floriano - Central</li>
-
+                            
                 <li>Última Sexta - Vila Morangueira</li>
                 <li>Última Sexta - Jd. Continental (Na igreja Pq. Hortência)</li>
                 <li>Última Sexta - Vila Santa Isabel</li>
@@ -114,9 +117,9 @@
                 <li>Última Sexta - Floresta - Central</li>
                 <li>Última Sexta - Ourizona - Central</li>
                 <li>Última Sexta - Prado Ferreira (JTÃ)</li>
-
-                <li>3ª Domingo - 17:00 - Pq. Avenida</li>
-
+                            
+                <li>3ª Domingo - 16:00 - Pq. Avenida</li>
+                            
                 <li>2ª Segunda - Jd. Bertioga</li>
                 <li>2ª Segunda - Jardim Monte Rei</li>
                 <li>2ª Segunda - Jardim Vitória</li>
@@ -125,7 +128,7 @@
                 <li>2ª Segunda - Jardim Europa (MÇU)</li>
                 <li>2ª Segunda - Res. Monte Carmelo (PDU)</li>
                 <li>2ª Segunda - São Jorge do Ivai - Central</li>
-
+                            
                 <li>3ª Segunda - Jd. Verônica</li>
                 <li>3ª Segunda - Pq. Hortência 1ª Parte</li>
                 <li>3ª Segunda - Vila Santo Antônio</li>
@@ -136,16 +139,17 @@
                 <li>3ª Segunda - Jd. Panorama (SDI)</li>
                 <li>3ª Segunda - Cj. Res. Floresta (SDI)</li>
                 <li>3ª Segunda - Bentópolis (JTÃ)</li>
-
+                            
                 <li>4ª Segunda - Maringá - Central</li>
                 <li>4ª Segunda - Jd. Oriental (Antigo Diamante)</li>
-                <li>4Á Segunda - Jd. Alvorada</li>
+                <li>4ª Segunda - Jd. Alvorada</li>
                 <li>4ª Segunda - Iguatemi</li>
                 <li>4ª Segunda - Pq. Alvamar (SDI)</li>
                 <li>4ª Segunda - Jd. Bela Vista (PDU)</li>
-
+                            
                 <li>Última Segunda - Jd. Universo</li>
                 <li>Última Segunda - Pq. Das Laranjeiras</li>
+                <li>Última Segunda - Jd. Espanha</li>
                 <li>Última Segunda - Ivatuba - Central</li>
                 <li>Última Segunda - Itambé - Central</li>
                 <li>Última Segunda - Jd. Independencia 3°Parte (SDI)</li>
@@ -154,32 +158,30 @@
 
         </div>
 
+        <!--Lista de Serviços -->
         <div id="pagina-serviços" class="conteudo hidden">
             <h2>Lista de Serviços - 07/11/25</h2>
             <input id="busca-serviços" placeholder="Digite o serviço ou data...">
             <ul id="lista-serviços">
                 <h3>Batismo</h3>
-                <li>Batismo - Mandaguaçu - 09/11/25 no Domingo às 18:30h - Ancião José Reis</li>
-                <li>Batismo - Floresta - 15/11/25 no Domingo às 19:00h - Ancião João Marinho</li>
-                <li>Batismo - Iguatemi - 16/11/25 no Domingo às 18:30h - Ancião Laerte Tolentino</li>
+                <li>Batismo - Iguatemi - 18/01/26 no Domingo às 18:30h - Ancião Valder Luis Araújo</li>
+                <li>Batismo - Jaguapitã - 07/02/26 no Sábado às 19:00h - Ancião Izaias Valério</li>
+                <li>Batismo - Sarandi - 15/02/26 no Domingo às 18:30h - Ancião Eliseu Leles</li>
 
                 <h3>Reuniões de Mocidade</h3>
-                <li>Reunião de Mocidade ONLINE - Bras SP - 30/11/25 no Domingo às 14:00h </li>
-                <li>Reunião de Mocidade - Mandaguaçu - 14/12/25 no Domingo às 14:00h - Ancião Carlos Eduardo G. Silva</li>
+                <li>Reunião de Mocidade - Apucarana - 18/01/25 no Domingo às 14:00h - Ancião Geter Valério</li>
+                <li>Reunião de Mocidade - Prado Ferreira - 25/01/26 no Domingo às 14:00h - Ancião Samuel Mangerona (Baurú-SP)</li>
+                <li>Reunião de Mocidade - Sarandi - 08/02/25 no Domingo às 14:00h - Ancião Marcos Moreira</li>
 
                 <h3>Culto para Mocidade</h3>
-                <li>Culto para Mocidade - Vila Santa Izabel - 29/11/25 no Sábado às 19:00h - Ancião Osvaldo Donato</li>
-                <li>Culto para Mocidade - Vila Morangueira - 29/11/25 no Sábado às 19:00h - Ancião Carlos Eduardo G. Silva</li>
-                <li>Culto para Mocidade - Floresta - 13/12/25 no Sábado às 19:00h - Ancião Marcos Moreira</li>
                 
 
                 <h3>Ensaio Regional (Geral)</h3>
-                <li>Ensaio Regional - Vila Morangueira - 30/11/25 no Domingo às 09:00h - Ancião Clóvis Maciel de Oliveira</li>
-                <li>Ensaio Regional - Jardim Alvorada - 30/11/25 no Domingo às 09:00h - Ancião José Reis</li>
+                <li>Ensaio Regional - Prado Ferreira - 25/01/2026 no Domingo às 09:00h - Ancião Samuel Mangerona (Baurú-SP)</li>
 
                 <h3>Ensaio p/ Familia (Cordas)</h3>
                 <li>Ensaio Geral para Familia de CORDAS - Vila Morangueira - 01/12/2025 na Segunda-Feira às 19:30h</li>
-                <li>Ensaio Geral para Familia de CORDAS - Mandaguaçu Central - 02/02/2026 na Segunda-Feira às 19:30h</li>
+                <li>Ensaio Geral para Familia de CORDAS - Mandaguaçu (Central) - 02/02/2026 na Segunda-Feira às 19:30h</li>
                 <li>Ensaio Geral para Familia de CORDAS - Sarandi (Central) - 02/03/2026 na Segunda-Feira às 19:30h</li>
                 <li>Ensaio Geral para Familia de CORDAS - Paiçandu (Central) - 06/04/2026 na Segunda-Feira às 19:30h</li>
                   
@@ -187,12 +189,12 @@
                 <li>Ensaio Geral para Familia de MADEIRAS - Sarandi (Central) - 01/12/2025 na Segunda-Feira às 19:30h</li>
                 <li>Ensaio Geral para Familia de MADEIRAS - Paiçandu (Central) - 02/02/2026 na Segunda-Feira às 19:30h</li>
                 <li>Ensaio Geral para Familia de MADEIRAS - Vila Morangueira - 02/03/2026 na Segunda-Feira às 19:30h</li>
-                <li>Ensaio Geral para Familia de MADEIRAS - Mandaguaçu Central - 06/04/2026 na Segunda-Feira às 19:30h</li>
+                <li>Ensaio Geral para Familia de MADEIRAS - Mandaguaçu (Central) - 06/04/2026 na Segunda-Feira às 19:30h</li>
                 
                 <h3>Ensaio p/ Familia (Metais)</h3>
                 <li>Ensaio Geral para Familia de METAIS - Paiçandu (Central) - 01/12/2025 na Segunda-Feira às 19:30h</li>
                 <li>Ensaio Geral para Familia de METAIS - Sarandi (Central) - 02/02/2026 na Segunda-Feira às 19:30h</li>
-                <li>Ensaio Geral para Familia de METAIS - Mandaguaçu Central - 02/03/2026 na Segunda-Feira às 19:30h</li>
+                <li>Ensaio Geral para Familia de METAIS - Mandaguaçu (Central) - 02/03/2026 na Segunda-Feira às 19:30h</li>
                 <li>Ensaio Geral para Familia de METAIS - Vila Morangueira - 06/04/2026 na Segunda-Feira às 19:30h</li>
 
             </ul>
@@ -210,4 +212,3 @@
     
 </body>
 </html>
-
